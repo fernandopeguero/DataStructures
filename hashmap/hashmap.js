@@ -12,5 +12,15 @@ function hash(key, arraylen) {
 }
 
 class hashMap {
-    constructor() {}
+    constructor() {
+        this.list = [];
+    }
+
+    set(key, value) {
+        const hashValue = hash(key, this.list.length);
+
+        this.list[hashValue] = value;
+    }
 }
+
+const hMap = new hashMap();
