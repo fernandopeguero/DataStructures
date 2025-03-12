@@ -10,20 +10,20 @@ class hashMap {
         for (let i = 0; i < Math.min(key.length, 100); i++) {
             let char = key[i];
             let value = char.charCodeAt(0) - 96;
-            hashCode = (hashCode * primeNumber + value) % (arraylen || 2);
+            hashCode = (hashCode * primeNumber + value) % arraylen;
         }
 
         return hashCode;
     }
 
     set(key, value) {
-        const hashValue = hash(key, this.list.length);
+        const hashValue = this.hash(key, this.keyMap.length);
 
         this.keyMap[hashValue] = value;
     }
 
     get(key) {
-        const hashKey = hash(key, this.list.length);
+        const hashKey = this.hash(key, this.keyMap.length);
 
         if (this.list[hashKey]) {
             return this.list[hashKey];
@@ -33,4 +33,4 @@ class hashMap {
     }
 }
 
-const hMap = new hashMap();
+const map = new hashMap();
