@@ -19,7 +19,7 @@ class hashMap {
     set(key, value) {
         const hashValue = hash(key, this.list.length);
 
-        this.list.splice(hashValue, 0, value);
+        this.keyMap[hashValue] = value;
     }
 
     get(key) {
