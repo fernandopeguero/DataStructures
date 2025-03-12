@@ -31,6 +31,19 @@ class hashMap {
 
         return null;
     }
+
+    has(key) {
+        const hashValue = this.hash(key, this.keyMap.length);
+
+        if (this.keyMap[hashValue]) return true;
+
+        return false;
+    }
 }
 
 const map = new hashMap();
+
+map.set("panel", "siete");
+map.set("espaci", "paz");
+map.set("entension", "alegria");
+map.set("mark", "decisiones");
