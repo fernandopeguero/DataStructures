@@ -39,6 +39,17 @@ class hashMap {
 
         return false;
     }
+
+    remove(key) {
+        const hashValue = this.hash(key, this.keyMap.length);
+
+        if (this.keyMap[hashValue]) {
+            this.keyMap.splice(hashValue, 1);
+            return true;
+        }
+
+        return false;
+    }
 }
 
 const map = new hashMap();
