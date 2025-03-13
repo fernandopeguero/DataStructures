@@ -55,6 +55,18 @@ class hashMap {
     clear() {
         this.keyMap = new Array(53);
     }
+
+    keys() {
+        const list = [];
+
+        for (const value of this.keyMap) {
+            if (value) {
+                list.push(value);
+            }
+        }
+
+        return list;
+    }
 }
 
 const map = new hashMap();
