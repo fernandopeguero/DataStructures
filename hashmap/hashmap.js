@@ -50,6 +50,11 @@ class hashMap {
 
         return false;
     }
+
+    // remove all entries basically just assign the array to a new array of the same size
+    clear() {
+        this.keyMap = new Array(53);
+    }
 }
 
 const map = new hashMap();
