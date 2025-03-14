@@ -56,7 +56,7 @@ class hashMap {
         this.keyMap = new Array(53);
     }
 
-    keys() {
+    values() {
         const list = [];
 
         for (const value of this.keyMap) {
@@ -64,6 +64,12 @@ class hashMap {
                 list.push(value);
             }
         }
+
+        return list;
+    }
+
+    keys() {
+        const list = Object.keys(this.keyMap);
 
         return list;
     }
