@@ -11,6 +11,22 @@ class BinarySearchTree {
         this.root = null;
     }
 
+    buildTree(array) {
+        if (array.length === 1) {
+            this.insert(array[0]);
+            return;
+        } else {
+            // insert node then find mid point then insert node again
+            const mid = Math.floor(array.length / 2);
+            this.insert(array[mid]);
+
+            this.buildTree(array.slice(0, mid));
+            this.buildTree(array.slice(mid + 1, array.length));
+
+            return this;
+        }
+    }
+
     insert(value) {
         const node = new Node(value);
 
@@ -44,9 +60,4 @@ class BinarySearchTree {
 
 const searchTree = new BinarySearchTree();
 
-searchTree.insert(50);
-searchTree.insert(45);
-searchTree.insert(30);
-searchTree.insert(46);
-searchTree.insert(65);
-searchTree.insert(70);
+searchTree.buildTree([1, 2, 3, 4, 5, 7, 8]);
