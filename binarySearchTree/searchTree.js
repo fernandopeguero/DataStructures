@@ -125,6 +125,22 @@ class BinarySearchTree {
 
         return this;
     }
+
+    levelOrder(callback) {
+        // traverse the tree breath first
+        const queue = [this.root];
+
+        while (queue.length) {
+            const currentNode = queue[0];
+
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
+            // call the callback on the current Node
+            callback(queue.shift());
+        }
+
+        return "Traversal Completed";
+    }
 }
 
 const searchTree = new BinarySearchTree();
