@@ -56,6 +56,37 @@ class BinarySearchTree {
 
         return this;
     }
+
+    /* Write a function call find that return the given value */
+    find(value) {
+        /*
+            traverse the tree and return the node that matches the value 
+        */
+
+        /*
+            get the current node 
+            check that is the node is the current node  equal the value 
+            check if value if greater or less or greater than the value 
+            if next node is null break
+            set current to new node 
+        */
+
+        let currentNode = this.root;
+
+        while (currentNode) {
+            if (value === currentNode.value) {
+                return currentNode;
+            }
+
+            if (value > currentNode.value) {
+                currentNode = currentNode.right;
+            } else {
+                currentNode = currentNode.left;
+            }
+        }
+
+        return null;
+    }
 }
 
 const searchTree = new BinarySearchTree();
